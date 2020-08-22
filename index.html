@@ -6,5 +6,21 @@
 </head>
 <body>
     <h1>Foto cachorro</h1>
+    <img id="foto">
+    <script>
+
+        fetch('https://dog.ceo/api/breeds/image/random')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data.message);
+            document.getElementById('foto').src=data.message;
+        })
+        .catch((err) => {
+            alert("ERRO ao acessar a API");
+        });
+
+    </script>
 </body>
 </html>
